@@ -1,6 +1,11 @@
-using CarRentalManagementByShine.Components;
+﻿using CarRentalManagementByShine.Components;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using CarRentalManagementByShine.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<CarRentalManagementByShineContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CarRentalManagementByShineContext") ?? throw new InvalidOperationException("Connection string 'CarRentalManagementByShineContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
