@@ -22,6 +22,9 @@ namespace CarRentalManagementByShine.Data
             modelBuilder.ApplyConfiguration(new ColourSeed());
             modelBuilder.ApplyConfiguration(new MakeSeed());
             modelBuilder.ApplyConfiguration(new ModelSeed());
+            modelBuilder.ApplyConfiguration(new RoleSeed());
+            modelBuilder.ApplyConfiguration(new UserSeed());
+            modelBuilder.ApplyConfiguration(new UserRoleSeed());
         }
     }
 }
