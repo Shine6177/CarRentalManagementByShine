@@ -30,9 +30,11 @@ builder.Services.AddAuthentication(options =>
     .AddIdentityCookies();
 
 builder.Services.AddIdentityCore<CarRentalManagementByShineUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<CarRentalManagementByShineContext>()
     .AddSignInManager()
     .AddDefaultTokenProviders();
+    
 
 builder.Services.AddSingleton<IEmailSender<CarRentalManagementByShineUser>, IdentityNoOpEmailSender>();
 
